@@ -5,6 +5,7 @@ var bio = {
 		"mobile" : "XXX-XXX-XXXX", 
 		"github" : "opeaceo",
 		"email": "jerrylinye@hotmail.com", 
+		"twitter":"",
 		"location": "NJ"
 	}, 
 	"welcomeMessage": "Welecome to my resume.", 
@@ -15,7 +16,7 @@ var bio = {
 };
 
 
-function displayBio() {
+bio.display = function () {
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 
@@ -53,7 +54,7 @@ function displayBio() {
 		});
 	}
 }
-displayBio();
+bio.display();
 
 var work = {
 	"jobs": [
@@ -93,7 +94,7 @@ function locationizer(work_obj) {
 
 console.log(locationizer(work));
 
-function displayWork() {
+work.display = function () {
 	for (index in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
 		var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[index].employer);
@@ -112,7 +113,7 @@ function displayWork() {
 	}
 }
 
-displayWork();
+work.display();
 
 
 var projects = {
@@ -126,7 +127,7 @@ var projects = {
 	]
 };
 
-function displayProjects() {
+projects.display = function () {
 	for (index in projects.projects) {
 		$("#projects").append(HTMLprojectStart);
 
@@ -147,7 +148,7 @@ function displayProjects() {
 		}
 	}
 }
-displayProjects();
+projects.display();
 
 var education = {
 	"schools" : [
@@ -170,7 +171,7 @@ var education = {
 	]
 };
 
-function displayEducation() {
+education.display = function () {
 	$("#education").append(HTMLschoolStart);
     for (var school in education.schools) {
     	
@@ -209,7 +210,7 @@ function displayEducation() {
         $(".education-entry:last").append(formattedCourseURL);
     }
 }
-displayEducation();
+education.display();
 
 //returns an array of location strings from locations in resumeBuilder
 function locationFinder() {
